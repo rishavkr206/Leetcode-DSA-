@@ -1,0 +1,22 @@
+Happy New year 2025
+
+1422. Maximum Score After Splitting a String - https://leetcode.com/problems/count-vowel-strings-in-ranges/ 
+
+class Solution {
+public:
+    int maxScore(string s) {
+        // Second optimal approach
+        int zeroes = 0, ones = 0;
+        int maxscore =0;
+        for(char c : s){
+            if(c == '1' ) ones++;
+        }
+        for(int i =0;i<s.length()-1;i++){
+            if(s[i] =='0') zeroes++;
+            if(s[i] == '1') ones-- ;
+            int score = zeroes + ones;
+            maxscore = max(score , maxscore);
+        }
+        return maxscore;
+    }
+};
